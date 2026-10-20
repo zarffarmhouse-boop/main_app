@@ -1,0 +1,6 @@
+{
+  "name": "Zarf Farmhouse Manager",
+  "description": "Simple offline business manager for rental farmhouses in Bhopal with large text, high contrast, Room DB logic, and Material 3 design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

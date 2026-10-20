@@ -3,6 +3,7 @@ package com.zarf.farmhouse
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -21,6 +22,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             var isDarkMode by remember { mutableStateOf(false) }
             var isLoggedIn by remember { mutableStateOf(false) }
@@ -94,13 +96,15 @@ fun MainScreenContainer(
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface
-                )
+                ),
+                windowInsets = WindowInsets(0.dp, 0.dp, 0.dp, 0.dp)
             )
         },
         bottomBar = {
             NavigationBar(
                 modifier = Modifier.height(84.dp),
-                containerColor = MaterialTheme.colorScheme.surface
+                containerColor = MaterialTheme.colorScheme.surface,
+                windowInsets = WindowInsets(0.dp, 0.dp, 0.dp, 0.dp)
             ) {
                 NavigationTab.values().forEach { tab ->
                     NavigationBarItem(
@@ -135,6 +139,7 @@ fun MainScreenContainer(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .padding(horizontal = 8.dp, vertical = 4.dp)
         ) {
             when (selectedTab) {
                 NavigationTab.Home -> HomeScreen(viewModel, onNavigate = { selectedTab = it })

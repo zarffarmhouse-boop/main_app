@@ -7,11 +7,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.googlefonts.Font
-import androidx.compose.ui.text.googlefonts.GoogleFont
-import androidx.compose.ui.text.googlefonts.GoogleFont.Provider
 import androidx.compose.ui.unit.sp
-import com.zarf.farmhouse.R
 
 // High contrast palette: Primary Red (#C62828) + Pure White + Soft Light Grey
 val PrimaryRed = Color(0xFFC62828)
@@ -48,62 +44,47 @@ private val DarkColorScheme = darkColorScheme(
     onSurface = TextHighContrastDark
 )
 
-// Google Fonts provider for Lora
-val provider = Provider(
-    providerAuthority = "com.google.android.gms.fonts",
-    providerPackage = "com.google.android.gms",
-    certificates = R.array.com_google_android_gms_fonts_certs
-)
-
-val LoraFont = GoogleFont("Lora")
-
-val LoraFontFamily = FontFamily(
-    Font(googleFont = LoraFont, fontProvider = provider, weight = FontWeight.Normal),
-    Font(googleFont = LoraFont, fontProvider = provider, weight = FontWeight.Medium),
-    Font(googleFont = LoraFont, fontProvider = provider, weight = FontWeight.SemiBold),
-    Font(googleFont = LoraFont, fontProvider = provider, weight = FontWeight.Bold)
-)
-
 // Large accessible typography for older non-technical user (minimum 20sp for body, 24sp+ for titles)
+// Using Serif font family as fallback that approximates Lora style
 val SeniorTypography = Typography(
     headlineLarge = TextStyle(
-        fontFamily = LoraFontFamily,
+        fontFamily = FontFamily.Serif,
         fontWeight = FontWeight.Bold,
         fontSize = 32.sp,
         lineHeight = 40.sp
     ),
     headlineMedium = TextStyle(
-        fontFamily = LoraFontFamily,
+        fontFamily = FontFamily.Serif,
         fontWeight = FontWeight.Bold,
         fontSize = 26.sp,
         lineHeight = 34.sp
     ),
     titleLarge = TextStyle(
-        fontFamily = LoraFontFamily,
+        fontFamily = FontFamily.Serif,
         fontWeight = FontWeight.Bold,
         fontSize = 24.sp,
         lineHeight = 32.sp
     ),
     titleMedium = TextStyle(
-        fontFamily = LoraFontFamily,
+        fontFamily = FontFamily.Serif,
         fontWeight = FontWeight.SemiBold,
         fontSize = 22.sp,
         lineHeight = 28.sp
     ),
     bodyLarge = TextStyle(
-        fontFamily = LoraFontFamily,
+        fontFamily = FontFamily.Serif,
         fontWeight = FontWeight.Normal,
         fontSize = 20.sp,
         lineHeight = 28.sp
     ),
     bodyMedium = TextStyle(
-        fontFamily = LoraFontFamily,
+        fontFamily = FontFamily.Serif,
         fontWeight = FontWeight.Normal,
         fontSize = 18.sp,
         lineHeight = 26.sp
     ),
     labelLarge = TextStyle(
-        fontFamily = LoraFontFamily,
+        fontFamily = FontFamily.Serif,
         fontWeight = FontWeight.Bold,
         fontSize = 20.sp,
         lineHeight = 26.sp

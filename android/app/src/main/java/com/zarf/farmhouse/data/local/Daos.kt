@@ -65,7 +65,7 @@ interface PersonDao {
 
 @Dao
 interface TodoDao {
-    @Query("SELECT * FROM todos ORDER BY isDone ASC, id DESC")
+    @Query("SELECT * FROM todos ORDER BY isDone ASC, createdAt DESC")
     fun getAllTodos(): Flow<List<TodoEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

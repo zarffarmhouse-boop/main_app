@@ -60,7 +60,7 @@ data class PersonEntity(
 @Entity(tableName = "todos")
 data class TodoEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
-    val task: String,
+    val title: String,
     val dueDate: String? = null,
     val priority: String = "Medium", // Low, Medium, High
     val isDone: Boolean = false,
